@@ -31,17 +31,42 @@ func main() {
 	/* Initialize struct value */
 	alex := person{
 		firstName: "Alex",
-		lastName:  "Anderson",
+		lastName:  "Sanderson",
 		// contact: contactInfo{
 		contactInfo: contactInfo{
 			email:   "alex@anderson.com",
 			zipCode: 43211,
 		},
 	}
-	/* Update the value of struct */
-	alex.firstName = "Alexx"
-	alex.lastName = "Sanderson"
+	/*
+		- Update the value of struct -
+	*/
+	// alex.firstName = "Alexx"
+	// alex.lastName = "Sanderson"
 
-	fmt.Println(alex)
-	fmt.Printf("%+v", alex)
+	// fmt.Println(alex)
+	// fmt.Printf("%+v", alex)
+
+	/*
+		- Example of using receiver -
+	*/
+	// alex.print()
+
+	/*
+		- Exmaple of using pointer -
+		Main rule of pointer
+		Operator * => e.g. *pointerToPerson => turn MEM.ADDRESS into VALUE
+		Operator & => e.g. &alex => turn VALUE into MEM.ADDRESS
+	*/
+	alexPointer := &alex
+	alexPointer.updateName("Gary Roach")
+	alex.print()
+}
+
+func (pointerToPerson *person) updateName(newFirstName string) {
+	(*pointerToPerson).firstName = newFirstName
+}
+
+func (p person) print() {
+	fmt.Printf("%+v", p)
 }
