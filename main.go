@@ -5,6 +5,12 @@ import "fmt"
 type person struct {
 	firstName string
 	lastName  string
+	contact   contactInfo
+}
+
+type contactInfo struct {
+	email   string
+	zipCode int
 }
 
 func main() {
@@ -22,7 +28,14 @@ func main() {
 	*/
 
 	/* Initialize struct value */
-	alex := person{firstName: "Alex", lastName: "Anderson"}
+	alex := person{
+		firstName: "Alex",
+		lastName:  "Anderson",
+		contact: contactInfo{
+			email:   "alex@anderson.com",
+			zipCode: 43211,
+		},
+	}
 	/* Update the value of struct */
 	alex.firstName = "Alexx"
 	alex.lastName = "Sanderson"
