@@ -58,8 +58,11 @@ func main() {
 		Operator * => e.g. *pointerToPerson => turn MEM.ADDRESS into VALUE
 		Operator & => e.g. &alex => turn VALUE into MEM.ADDRESS
 	*/
-	alexPointer := &alex
-	alexPointer.updateName("Gary Roach")
+	/* Way 1 to declare pointer in explicit way */
+	// alexPointer := &alex
+	// alexPointer.updateName("Gary Roach")
+	/* Way 2 to declare pointer in inexplicit way */
+	alex.updateName("Gary Roach")
 	alex.print()
 }
 
